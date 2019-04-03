@@ -1,6 +1,8 @@
 const jwt = require("jsonwebtoken");
+const fs = require("fs");
+const path = require("path");
 
-const privateKEY = require("../keys/privateKey");
+const privateKEY = fs.readFileSync(path.resolve(__dirname, "../keys/jwtRS256.key"));
 
 //generate token using jsonwebtoken
 function generateToken(payload) {
@@ -8,6 +10,6 @@ function generateToken(payload) {
   return token;
 }
 
-// console.log(generateToken({ data: "testData" }));
+console.log(generateToken({ data: "testData" }));
 
 module.exports = generateToken;
