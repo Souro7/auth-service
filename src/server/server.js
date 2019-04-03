@@ -2,9 +2,25 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 const authRoute = require("./routes/authRoute");
-const logger = require("../winstonLogger");
+const logger = require("./winstonLogger");
 
 const app = express();
+
+process.on("uncaughtException", err => {
+  logger.log({
+    level: "error",
+    message: err
+  });
+  process.exit();
+});
+
+process.on("unhandledRejection", err => {
+  logger.log({
+    level: "error",
+    message: err
+  });
+  process.exit();
+});
 
 app.use(bodyParser.json());
 app.use("/auth", authRoute);

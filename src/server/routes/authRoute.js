@@ -24,6 +24,10 @@ routes.post("/login", async (req, res, next) => {
       const storedPassword = userInDB.dataValues.password;
       if (!(await compare(value.password, storedPassword))) throw { code: 400, message: "Email/Password do not match" };
       else {
+        logger.log({
+          level: "info",
+          message: "generate token for login"
+        });
         res.status(200).send(generateToken({ id: userInDB.dataValues.id, email: userInDB.dataValues.email }));
       }
     }
@@ -49,6 +53,10 @@ routes.post("/register", async (req, res, next) => {
         password: hashedPassword
       });
       //generate token and return response
+      logger.log({
+        level: "info",
+        message: "generate token for registration"
+      });
       res.status(200).send(generateToken({ id: newUser.id, email: newUser.email }));
     }
   } catch (e) {
