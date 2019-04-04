@@ -6,8 +6,8 @@ const sequelize = require("sequelize");
 const logger = require("../winstonLogger");
 require("../../db/connectToDB");
 const User = require("../../models/user");
-const { encrypt, compare } = require("../../utilities/hashingFunctions");
-const generateToken = require("../../utilities/generateToken");
+const { encrypt, compare } = require("../../utils/hashingFunctions");
+const generateToken = require("../../utils/generateToken");
 
 //login end-point
 routes.post("/login", async (req, res, next) => {
