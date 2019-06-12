@@ -10,14 +10,14 @@
     "username": "postgres",
     "password": "mysecretpassword",
     "database": "movie-rental-auth",
-    "host": "localhost",
+    "host": "db",
     "dialect": "postgres"
   },
   "production": {
     "username": "postgres",
     "password": "mysecretpassword",
     "database": "movie-rental-auth",
-    "host": "localhost",
+    "host": "db",
     "dialect": "postgres"
   }
 }

@@ -10,6 +10,6 @@ function generateToken(payload) {
   return token;
 }
 
-console.log(generateToken({ data: "testData" }));
+// console.log(generateToken({ data: "testData" }));
 
 module.exports = generateToken;
